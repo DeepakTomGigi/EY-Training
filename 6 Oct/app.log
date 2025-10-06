@@ -1,0 +1,14 @@
+
+2025-10-06 14:30:58,134 - root - INFO - This is a info message
+2025-10-06 14:30:58,134 - root - WARNING - This is a warning message
+2025-10-06 14:30:58,134 - root - ERROR - This is an error message
+2025-10-06 14:30:58,134 - root - CRITICAL - This is a critical message
+2025-10-06 14:31:14,725 - root - DEBUG - This is a debug message
+2025-10-06 14:31:14,726 - root - INFO - This is a info message
+2025-10-06 14:31:14,726 - root - WARNING - This is a warning message
+2025-10-06 14:31:14,726 - root - ERROR - This is an error message
+2025-10-06 14:31:14,726 - root - CRITICAL - This is a critical message
+2025-10-06 14:31:45,746 - root - ERROR - This is an error message
+2025-10-06 14:31:45,746 - root - CRITICAL - This is a critical message
+2025-10-06 14:33:25,446 - root - ERROR - File not found error
+2025-10-06 14:33:25,446 - root - CRITICAL - Critical system failure

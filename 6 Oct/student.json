@@ -1,0 +1,12 @@
+{
+    "name": "Rahul",
+    "age": 22,
+    "course": [
+        "AI",
+        "ML"
+    ],
+    "marks": {
+        "AI": 85,
+        "ML": 90
+    }
+}

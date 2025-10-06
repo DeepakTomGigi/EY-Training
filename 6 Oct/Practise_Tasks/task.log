@@ -1,0 +1,9 @@
+2025-10-06 15:44:32,041 - root - INFO - Loaded 2 students
+2025-10-06 15:47:28,878 - root - INFO - Loaded 2 students
+2025-10-06 15:48:53,511 - root - INFO - Loaded 2 students
+2025-10-06 15:49:44,277 - root - INFO - Loaded 3 students
+2025-10-06 15:49:44,278 - root - INFO - Added new student {'name': 'Arjun', 'age': 20, 'course': 'Data Science', 'marks': 78}
+2025-10-06 15:50:41,908 - root - INFO - Loaded 4 students
+2025-10-06 15:50:41,909 - root - INFO - Added new student Arjun
+2025-10-06 15:51:06,819 - root - INFO - Loaded 2 students
+2025-10-06 15:51:06,820 - root - INFO - Added new student Arjun
