@@ -33,9 +33,8 @@ def get_employee(emp_id: int):
 # POST add new employee
 @app.post("/employees")
 def add_employee(employee: Employee):
-    for emp in employees:
-        if emp.id == employee.id:
-            raise HTTPException(status_code=400, detail="Employee ID already exists")
+    if any(emp.id == employee.id for emp in employees):
+        raise HTTPException(status_code=400, detail="Employee ID already exists")
     employees.append(employee)
     return employee
 
@@ -58,3 +57,7 @@ def delete_employee(emp_id: int):
     raise HTTPException(status_code=404, detail="Employee not found")
 
 
+# Bonus: GET total number of employees
+@app.get("/employees/count")
+def get_employee_count():
+    return {"total_employees": len(employees)}
