@@ -22,6 +22,12 @@ employees = [
 def get_employees():
     return employees
 
+# Bonus: GET total number of employees
+@app.get("/employees/count")
+def get_employee_count():
+    return {"total_employees": len(employees)}
+
+
 # GET employee by ID
 @app.get("/employees/{emp_id}")
 def get_employee(emp_id: int):
@@ -57,7 +63,3 @@ def delete_employee(emp_id: int):
     raise HTTPException(status_code=404, detail="Employee not found")
 
 
-# Bonus: GET total number of employees
-@app.get("/employees/count")
-def get_employee_count():
-    return {"total_employees": len(employees)}
