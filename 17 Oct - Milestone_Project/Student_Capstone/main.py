@@ -57,8 +57,10 @@ def get_students():
 @app.post("/students")
 def add_student(student: Student):
     students = read_students()
-    if any(s["StudentID"] == str(student.StudentID) for s in students):
-        logger.warning(f"Duplicate StudentID {student.StudentID}")
+    for s in students:
+        if s["StudentID"] == str(student.StudentID):
+            logger.warning(f"Duplicate StudentID {student.StudentID}")
+            break
         raise HTTPException(status_code=400, detail="StudentID already exists")
     students.append({
         "StudentID": str(student.StudentID),

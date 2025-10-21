@@ -20,7 +20,7 @@ except FileNotFoundError:
 df['TotalMarks'] = df['Maths'] + df['Python'] + df['ML']
 
 # Percentage = (TotalMarks / MaximumMarks) * 100
-# Maximum marks per subject = 100, total 300
+
 df['Percentage'] = (df['TotalMarks'] / 300) * 100
 
 # Result = Pass if Percentage >= 50
