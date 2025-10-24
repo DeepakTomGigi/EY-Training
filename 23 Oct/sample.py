@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
+import streamlit as st
 
 # 1. Load environment variables from .env
 load_dotenv()
@@ -14,22 +15,45 @@ if not api_key:
 
 # 2. Initialize LangChain model pointing to OpenRouter
 llm = ChatOpenAI(
-    model="mistralai/mistral-7b-instruct",
+    model="mistralai/mistral-7b-instruct:free",
     temperature=0.7,
     max_tokens=256,
     api_key=api_key,
     base_url=base_url,
 )
 
-# 3. Define messages (Mistral models work better with [INST]...[/INST])
-messages = [
-    SystemMessage(content="You are a helpful and concise AI assistant."),
-    HumanMessage(content="<s>[INST] Explain in simple terms how convolutional neural networks work. [/INST]"),
-]
+st.title("AI Assistant")
 
-# 4. Invoke model and print response
-try:
-    response = llm.invoke(messages)
-    print("Assistant:", response.content.strip() or "(no content returned)")
-except Exception as e:
-    print("Error:", e)
+user_input = st.text_area("Enter your message:")
+
+if st.button("Send"):
+    if not user_input.strip():
+        st.error("Please enter a message.")
+    else:
+        try:
+            llm = ChatOpenAI(
+                model="mistralai/mistral-7b-instruct",
+                temperature=0.7,
+                max_tokens=256,
+                api_key=api_key,
+                base_url=base_url,
+            )
+
+            messages = [
+                SystemMessage(content="You are a helpful and concise AI assistant."),
+                HumanMessage(content=user_input)
+            ]
+
+            with st.spinner("Generating response..."):
+                response = llm.invoke(messages)
+
+            st.subheader("Response:")
+            st.write(response.content.strip() if response.content else "(no response)")
+
+        except Exception as e:
+            st.error(f"Error: {e}")
+
+# messages = [
+#     SystemMessage(content="You are a helpful and concise AI assistant."),
+#     HumanMessage(content="<s>[INST] Explain in simple terms how convolutional neural networks work. [/INST]"),
+# ]
