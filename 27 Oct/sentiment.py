@@ -4,7 +4,7 @@ from transformers import pipeline
 classifier = pipeline("sentiment-analysis")
 
 # Example text
-text = "I love the new design of this website! It's so user-friendly and fast."
+text = "I think the new design of this website is very plain It's user-friendly but also vague."
 
 # Perform sentiment analysis
 result = classifier(text)
